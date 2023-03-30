@@ -6,8 +6,8 @@ const mobile = require('./mobile')
 app.use(require('express').urlencoded({extended: false}))
 app.use(require('express').json())
 
-const host = 'localhost'
-const port = 3000
+//const host = 'localhost'
+const port = process.env.PORT || 3030; //3000
 
 app.use('/', require('express').static(`${__dirname}/static`))
 
@@ -31,6 +31,6 @@ app.use((req, res)=>{
 	res.status(404).send('error: '+req.url+' cannot be found')
 })
 
-app.listen(port, host, function() {
+app.listen(port,/* host,*/ function() {
 	console.log(`app listen ${port} port`)
 })
