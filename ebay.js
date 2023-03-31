@@ -24,8 +24,8 @@ async function findOnEbay(mark, ort, distance, callback) {
   //await page.waitForSelector(selector)
   //const searchValue = await page.$eval(selector, el => el.textContent)
   //accepts cookies
-  await page.waitForSelector('#gdpr-banner-backdrop');
-  await page.click('#gdpr-banner-accept');
+  //await page.waitForSelector('#gdpr-banner-backdrop');
+  //await page.click('#gdpr-banner-accept');
   await page.waitForTimeout(2000);
   //console.log(await page.$eval('a.j-overlay-close', el => el.title))
   await page.click('a.j-overlay-close');
