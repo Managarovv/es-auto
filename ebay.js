@@ -13,7 +13,7 @@ router.route('/')
 
 async function findOnEbay(mark, ort, distance, callback) {
 
-  const browser = await puppeteer.launch({headless: false, slowMo:10});
+  const browser = await puppeteer.launch({slowMo:10});
   const page = await browser.newPage();
   await page.setViewport({ width: 1920, height: 1080});
 
