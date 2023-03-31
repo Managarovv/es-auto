@@ -26,7 +26,7 @@ async function findOnEbay(mark, ort, distance, callback) {
   //const searchValue = await page.$eval(selector, el => el.textContent)
   //accepts cookies
 
-  await page.waitForTimeout(1000);
+  await page.waitForTimeout(1500);
   await page.screenshot({path: `${__dirname}/example.png`});
   await page.waitForSelector('#gdpr-banner-backdrop');
   await page.click('#gdpr-banner-accept');
