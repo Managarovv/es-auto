@@ -29,7 +29,7 @@ async function findOnEbay(mark, ort, distance, callback) {
   await page.click('#gdpr-banner-accept');}
   catch(e){
     console.log(e.message);
-    await page.screenshot({path: `${__dirname}/screenshots/example.png`});
+    await page.screenshot({path: `${__dirname}/example.png`});
     res.sendFile(`${__dirname}/example.png`);
   }
   await page.waitForTimeout(2000);
@@ -65,7 +65,7 @@ async function findOnEbay(mark, ort, distance, callback) {
 
   //console.log(await markAuto[1].$eval('a', el => el.innerText));
   await page.waitForTimeout(10000)
-  await page.screenshot({path: `${__dirname}/screenshots/example.png`});
+  await page.screenshot({path: `${__dirname}/example.png`});
 
   const lastPosition = await scrollPageToBottom(page, {
     size: 500,
