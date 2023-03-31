@@ -13,13 +13,10 @@ router.route('/')
 
 async function findOnEbay(mark, ort, distance, callback) {
 
-  const browser = await puppeteer.launch({headless: false, args: ['--no-sandbox', '--disable-setuid-sandbox', '--single-process', '--no-zygote'], slowMo:10});
+  const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox', '--single-process', '--no-zygote'], slowMo:10});
   const page = await browser.newPage();
   await page.setUserAgent("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.0 Safari/537.36");
-  await page.setViewport({ width: 1920, height: 1080});
-  await page.setExtraHTTPHeaders({
-    'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'
-  });
+  //await page.setViewport({ width: 1920, height: 1080});
 
   await page.goto('https://www.ebay-kleinanzeigen.de/');
   
@@ -28,8 +25,13 @@ async function findOnEbay(mark, ort, distance, callback) {
   //await page.waitForSelector(selector)
   //const searchValue = await page.$eval(selector, el => el.textContent)
   //accepts cookies
-  await page.waitForSelector('#gdpr-banner-backdrop');
-  await page.click('#gdpr-banner-accept');
+  try{ await page.waitForSelector('#gdpr-banner-backdrop');
+  await page.click('#gdpr-banner-accept');}
+  catch(e){
+    console.log(e.message);
+    await page.screenshot({path: `${__dirname}/screenshots/example.png`});
+    res.sendFile(`${__dirname}/screenshots/example.png`);
+  }
   await page.waitForTimeout(2000);
   //console.log(await page.$eval('a.j-overlay-close', el => el.title))
   await page.click('a.j-overlay-close');
