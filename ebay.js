@@ -19,9 +19,9 @@ async function findOnEbay(mark, ort, distance, callback) {
 
   await page.goto('https://www.ebay-kleinanzeigen.de/');
   
-  const selector = "#site-search-submit"
+  //const selector = "#site-search-submit"
 
-  await page.waitForSelector(selector)
+  //await page.waitForSelector(selector)
   //const searchValue = await page.$eval(selector, el => el.textContent)
   //accepts cookies
   await page.waitForSelector('#gdpr-banner-backdrop');
