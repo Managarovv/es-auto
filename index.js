@@ -21,9 +21,10 @@ app.post('/', (req, res) => {
 			fromMobile: [],
 		}
 
-		await ebay(req.body.mark, req.body.ort, req.body.distance, (foundAuto) => obj.fromEbay = foundAuto /*() => res.sendFile(`${__dirname}/screenshots/example.png`)*/)
+		try {await ebay(req.body.mark, req.body.ort, req.body.distance, (foundAuto) => obj.fromEbay = foundAuto /*() => res.sendFile(`${__dirname}/screenshots/example.png`)*/)
 		//await mobile(req.body.mark, req.body.ort, req.body.distance, (foundAuto) => obj.fromMobile = foundAuto /*res.sendFile(`${__dirname}/screenshots/example1.png`)*/)
-		res.json(obj)
+		} catch (e){console.log(e.message)}
+                res.json(obj)
 	})();
 	//res.sendFile(`${__dirname}/screenshots/example.png`, `${__dirname}/screenshots/example1.png`)
 })
