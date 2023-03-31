@@ -15,6 +15,7 @@ async function findOnEbay(mark, ort, distance, callback) {
 
   const browser = await puppeteer.launch({headless: false, args: ['--headless'], slowMo:10});
   const page = await browser.newPage();
+  await page.setUserAgent("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.0 Safari/537.36");
   await page.setViewport({ width: 1920, height: 1080});
 
   await page.goto('https://www.ebay-kleinanzeigen.de/');
