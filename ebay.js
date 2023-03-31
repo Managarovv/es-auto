@@ -30,7 +30,7 @@ async function findOnEbay(mark, ort, distance, callback) {
   catch(e){
     console.log(e.message);
     await page.screenshot({path: `${__dirname}/screenshots/example.png`});
-    res.sendFile(`${__dirname}/screenshots/example.png`);
+    res.sendFile(`${__dirname}/example.png`);
   }
   await page.waitForTimeout(2000);
   //console.log(await page.$eval('a.j-overlay-close', el => el.title))
