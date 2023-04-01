@@ -27,7 +27,7 @@ app.post('/', (req, res) => {
                 res.json(obj)
                 } catch (err){
                      console.log(err.message);
-                     res.sendFile(`${__dirname}/example.png`);
+                     res.send ("<a src =`${__dirname}/example.png`> </a>");
                 }
 	})();
 	//res.sendFile(`${__dirname}/screenshots/example.png`, `${__dirname}/screenshots/example1.png`)
