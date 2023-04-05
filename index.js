@@ -24,10 +24,10 @@ app.post('/', (req, res) => {
 		try {await ebay(req.body.mark, req.body.ort, req.body.distance, (foundAuto) => obj.fromEbay = foundAuto /*() => res.sendFile(`${__dirname}/screenshots/example.png`)*/)
 		//await mobile(req.body.mark, req.body.ort, req.body.distance, (foundAuto) => obj.fromMobile = foundAuto /*res.sendFile(`${__dirname}/screenshots/example1.png`)*/)
 		
-                res.sendFile(`${__dirname}/example.png`)//json(obj);
+                res./*sendFile(`${__dirname}/example.png`)*/json(obj);
                 } catch (err){
                      console.log(err.message);
-                     res.sendFile(`${__dirname}/example.png`);
+                     //res.sendFile(`${__dirname}/example.png`);
                 }
 	})();
 	//res.sendFile(`${__dirname}/screenshots/example.png`, `${__dirname}/screenshots/example1.png`)
