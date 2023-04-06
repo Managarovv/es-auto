@@ -26,7 +26,7 @@ async function findAuto(data) {
 		body: JSON.stringify(data)
 	});
 
-	/*if (response.ok) {
+	if (response.ok) {
 		//let text = await response.json();
 		let json = await response.json()
 		
@@ -34,7 +34,7 @@ async function findAuto(data) {
 		
 		console.info(json)
 	}
-	else console.info('error')*/
+	else console.info('error')
 }
 
 // async function findAuto(data){
